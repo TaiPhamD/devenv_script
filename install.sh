@@ -2,14 +2,16 @@
 
 # store all existing conda envs to yaml
 
-# loop through conda env list and export to yaml per environment
-mkdir conda_env_backup
-for env in $(conda env list | grep -v '#' | awk '{print $1}' | grep -v '^$'); do
-    conda env export -n $env > conda_env_backup/$env.yaml
-done
 
 # check if conda is installed if so rename miniconda3 to miniconda3_old
 if [ -d "$HOME/miniconda3" ]; then
+    echo "Found previous miniconda3 installation, backing up conda envs to yaml"
+    mkdir conda_env_backup
+    # loop through conda env list and export to yaml per environment
+    for env in $(conda env list | grep -v '#' | awk '{print $1}' | grep -v '^$'); do
+        conda env export -n $env > conda_env_backup/$env.yaml
+    done
+    echo "Your conda envs have been backed up to conda_env_backup folder"
     mv $HOME/miniconda3 $HOME/miniconda3_old
 fi
 
@@ -64,6 +66,10 @@ cp starship.toml $HOME/.config/starship.toml
  
 conda install -n base -c conda-forge starship -y
  
+# if $HOME/.oh-my-zsh exists, rename it to $HOME/.oh-my-zsh_old
+if [ -d "$HOME/.oh-my-zsh" ]; then
+    mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh_old
+fi
 # install oh-my-zsh for plugins
 git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
