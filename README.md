@@ -5,6 +5,6 @@
 ## install
 - run install.sh
 
-If everything correctly installed, you should see the following in your shell
+If it is correctly installed, you should see the following in theme in your terminal:
 
 ![shell](https://github.com/TaiPhamD/devenv_script/blob/main/terminal_zsh.png)
