@@ -37,6 +37,8 @@ if [ "$MINICONDA_ARCH" == "x86_64" ]; then
     MINICONDA_ARCH="x86_64"
 elif [ "$MINICONDA_ARCH" == "arm64" ]; then
     MINICONDA_ARCH="arm64"
+elif [ "$MINICONDA_ARCH" == "aarch64" ]; then
+    MINICONDA_ARCH="aarch64"    
 else
     echo "Architecture not supported"
     exit 1
