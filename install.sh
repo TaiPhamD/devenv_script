@@ -48,7 +48,8 @@ else
     echo "conda already installed"
 fi
 
- 
+source ~/.zshrc
+
 cp starship.toml $HOME/.config/starship.toml
 conda install -n base -c conda-forge starship -y
  
@@ -104,6 +105,13 @@ if ! grep -q "eval \"\$(starship init zsh)\"" "$HOME/.zshrc"; then
     echo "eval \"\$(starship init zsh)\"" >> ~/.zshrc
 else
     echo "eval \"\$(starship init zsh)\" already in .zshrc"
+fi
+
+# check if we have a conda environment named "311"
+if ! conda env list | grep -q "311"; then
+    conda env create -f environment.yml
+else
+    echo "conda environment 311 already exists"
 fi
 
 zsh
