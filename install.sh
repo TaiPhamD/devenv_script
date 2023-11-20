@@ -44,11 +44,10 @@ if [ ! -d "$HOME/miniconda3" ]; then
     rm miniconda.sh
     # Initialize conda for all shells (may require restarting the shell)
     $INSTALL_DIR/bin/conda init zsh
+    source ~/.zshrc
 else
     echo "conda already installed"
 fi
-
-source ~/.zshrc
 
 cp starship.toml $HOME/.config/starship.toml
 conda install -n base -c conda-forge starship -y
