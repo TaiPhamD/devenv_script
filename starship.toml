@@ -68,7 +68,7 @@ style = "bg:#3F51B5"
 format = '[ $symbol ($version) ]($style)'
  
 [conda]
-symbol = "🅒 "
+symbol = " "
 style = "bg:#00695C"
 ignore_base = false
 format = '[$symbol$environment]($style)'
