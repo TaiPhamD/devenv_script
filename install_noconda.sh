@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 cp starship.toml $HOME/.config/starship.toml
  
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
