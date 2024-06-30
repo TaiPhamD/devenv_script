@@ -48,6 +48,8 @@ else
     echo "source \$ZSH/oh-my-zsh.sh already in .zshrc"
 fi
 
+curl -sS https://starship.rs/install.sh | sh
+
 # check if $HOME/.zshrc has the line: eval "$(starship init zsh)"
 if ! grep -q "eval \"\$(starship init zsh)\"" "$HOME/.zshrc"; then
     echo "" >> ~/.zshrc

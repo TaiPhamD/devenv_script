@@ -23,8 +23,11 @@ $conda\
 [](fg:#00695C bg:#33658A)\
 $time\
 [ ](fg:#33658A)\
-"""
+\n$character"""
  
+# Disable the blank line at the start of the prompt
+# add_newline = false
+command_timeout=10000
 # Disable the blank line at the start of the prompt
 # add_newline = false
  
